@@ -1,0 +1,14 @@
+{
+	"name": "glm-ts",
+	"version": "0.1.0",
+	"description": "TypeScript matrix and vector maths library",
+	"main": "./lib/index.js",
+	"author": "Dief Bell",
+	"license": "MIT",
+	"scripts": {
+		"build": "tsc"
+	},
+	"devDependencies": {
+		"typescript": "^4.8.4"
+	}
+}
