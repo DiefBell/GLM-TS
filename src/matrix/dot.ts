@@ -25,10 +25,10 @@ export const dot = <
     ) as RESULT;
 };
 
-const willWork = dot(
-    [ 1, 2, 3 ],
-    [ 4, 5, 6 ]
-);
+// const willWork = dot(
+//     [ 1, 2, 3 ],
+//     [ 4, 5, 6 ]
+// );
 // const wontWork = dot(
 //     [ 1, 2, 3 ],
 //     [ 4, 5 ]

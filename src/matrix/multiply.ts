@@ -42,13 +42,14 @@ export const multiply = <
     return result as RESULT;
 };
 
-const m1: Matrix<1, 2> = [
-    [ 5, 6 ]
-];
-const m2: Matrix<2, 3> = [
-    [ 8, 9, 7 ],
-    [ 6, 5, 4 ]
-];
 
-const willWork = multiply(m1, m2);
+// const m1: Matrix<1, 2> = [
+//     [ 5, 6 ]
+// ];
+// const m2: Matrix<2, 3> = [
+//     [ 8, 9, 7 ],
+//     [ 6, 5, 4 ]
+// ];
+
+// const willWork = multiply(m1, m2);
 // const wontWork = multiply(m2, m1);
