@@ -1,4 +1,4 @@
-import { Matrix } from "./types/Matrix";
+import { Matrix } from "./Matrix";
 
 
 export const add = <R extends number, C extends number>(a: Matrix<R, C>, b: Matrix<R, C>): Matrix<R, C> =>

@@ -6,7 +6,9 @@
 	"author": "Dief Bell",
 	"license": "MIT",
 	"scripts": {
-		"build": "tsc"
+		"build": "tsc",
+		"lint": "eslint .",
+		"lint:fix": "eslint . --fix"
 	},
 	"devDependencies": {
 		"@typescript-eslint/eslint-plugin": "^5.41.0",
