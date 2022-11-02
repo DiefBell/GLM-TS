@@ -1,4 +1,4 @@
-import { FixedLengthArray } from "./FixedLengthArray";
+import { FixedLengthArray } from "../common/FixedLengthArray";
 
 type CannotDotProductArrays<L1 extends number, L2 extends number> =
     `Array with length ${L1} cannot be dot-producted with array with differing length of ${L2}`;

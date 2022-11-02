@@ -1,6 +1,6 @@
 import { dot } from "./dot";
-import { FixedLengthArray } from "./FixedLengthArray";
-import { Matrix } from "./Matrix";
+import { FixedLengthArray } from "../common/FixedLengthArray";
+import { Matrix } from "./types/Matrix";
 
 type MatricesCannotBeMultiplied<R1 extends number, C1 extends number, R2 extends number, C2 extends number> =
     `Matrix with dimensions (${R1},${C1}) cannot be multiplied by a matrix with dimensions (${R2},${C2})!`;
