@@ -1,3 +1,3 @@
-import { Matrix } from "./Matrix";
+import { FixedLengthArray } from "../common/FixedLengthArray";
 
-export type SquareMatrix<L extends number> = Matrix<L, L>;
+export type SquareMatrix<L extends number> = FixedLengthArray<FixedLengthArray<number, L>, L>;
