@@ -1,7 +1,7 @@
-import { Equal, LessThan } from "../common/arithmetic";
-import { IntRange } from "../common/arithmetic/IntRange";
-import { Matrix } from "./Matrix";
-import { SquareMatrix } from "./SquareMatrix";
+import { Equal, LessThan } from "../../common/arithmetic";
+import { IntRange } from "../../common/arithmetic/IntRange";
+import { Matrix } from "../types/Matrix";
+import { SquareMatrix } from "../types/SquareMatrix";
 
 type IsMatrixSquare<ROWS extends number, COLS extends number> =
     Equal<ROWS, COLS> extends true ? true : false;
@@ -49,12 +49,12 @@ IsMatrixSquare<ROWS, COLS> extends false
 };
 
 
-const square: Matrix<3, 3> = [
-    [ 1, 2, 3 ],
-    [ 4, 5, 6 ],
-    [ 7, 8, 9 ]
-];
-submatrix(square, 2, 1);
+// const square: Matrix<3, 3> = [
+//     [ 1, 2, 3 ],
+//     [ 4, 5, 6 ],
+//     [ 7, 8, 9 ]
+// ];
+// submatrix(square, 4, 1);
 
 
 

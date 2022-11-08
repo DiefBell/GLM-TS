@@ -1,6 +1,6 @@
-import { Matrix } from "./Matrix";
-import { SquareMatrix } from "./SquareMatrix";
-import { submatrix } from "./submatrix";
+import { Matrix } from "./types/Matrix";
+import { SquareMatrix } from "./types/SquareMatrix";
+import { submatrix } from "./util/submatrix";
 
 export const determinant = <L extends number>(mat: SquareMatrix<L>): number =>
 {   

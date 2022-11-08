@@ -1,4 +1,4 @@
-import { SquareMatrix } from "./SquareMatrix";
+import { SquareMatrix } from "./types/SquareMatrix";
 
 // https://en.wikipedia.org/wiki/Adjugate_matrix
 export const adjugate = <L extends number>(mat:SquareMatrix<L>): SquareMatrix<L> =>
