@@ -35,7 +35,8 @@ export const multiply = <
         {
             const row = l[lRow] as unknown as FixedLengthArray<number, R2>;
             const col = r.map((rRow) => rRow[rCol]) as FixedLengthArray<number, C1>;
-            result[lRow].push(dot<undefined, undefined>(row, col));
+            // @ts-ignore
+            result[lRow].push(dot(row, col));
         }
     }
 

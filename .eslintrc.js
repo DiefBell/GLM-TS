@@ -17,13 +17,15 @@ module.exports = {
         "plugin:@typescript-eslint/recommended"
     ],
     rules: {
+		"@typescript-eslint/ban-ts-comment": "off",
         "prefer-const": "warn",
         "@typescript-eslint/no-inferrable-types": "warn",
         "@typescript-eslint/no-empty-interface": "off",
         "@typescript-eslint/no-empty-function": "off",
 		"brace-style": "off",
 		"@typescript-eslint/brace-style": [ "error", "allman", { "allowSingleLine": true } ],
-		"semi": "error",
+		"semi": "off",
+		"@typescript-eslint/semi": "error",
 		"eol-last": "error"
     }
 };

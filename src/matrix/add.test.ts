@@ -1,45 +1,84 @@
-import type {
-    mat2 as glmMat2
-} from "gl-matrix";
 import { add } from "./add";
 import { Mat2 } from "./types/Mat2";
 
 describe("The Matrix Add function", () =>
 {
-    let mat2: typeof glmMat2;
-    beforeAll(async () =>
+    describe("for 2x2 matrices", () =>
     {
-        (
-            { mat2 } = await import("gl-matrix")
-        );
+        it("should correctly add matrices of positive numbers", () =>
+        {
+            const a: Mat2 = [
+                [ 1, 2 ],
+                [ 3, 4 ]
+            ];
+            const b: Mat2 = [
+                [ 5, 6 ],
+                [ 8, 7 ]
+            ];
+            const result = add(a, b);
+
+            const expected: Mat2 = [
+                [ 6,  8  ],
+                [ 11, 11 ]
+            ];
+
+            expect(result).toEqual(expected);
+        });
+
+        it("should correctly add matrices of a mix of positive and negative numbers", () =>
+        {
+            const a: Mat2 = [
+                [ 1, 2 ],
+                [ 3, 4 ]
+            ];
+            const b: Mat2 = [
+                [ -5,  6 ],
+                [  8, -7 ]
+            ];
+            const result = add(a, b);
+
+            const expected: Mat2 = [
+                [ -4,  8  ],
+                [ 11, -3 ]
+            ];
+
+            expect(result).toEqual(expected);
+        });
+
+        it("should correctly add matrices of only negative numbers", () =>
+        {
+            const a: Mat2 = [
+                [ -1, -2 ],
+                [ -3, -4 ]
+            ];
+            const b: Mat2 = [
+                [ -5, -6 ],
+                [ -8, -7 ]
+            ];
+            const result = add(a, b);
+
+            const expected: Mat2 = [
+                [ -6,  -8  ],
+                [ -11, -11 ]
+            ];
+
+            expect(result).toEqual(expected);
+        });
+
+        it("should correctly add an empty (all-zero) matrix", () =>
+        {
+            const a: Mat2 = [
+                [ 1, 2 ],
+                [ 3, 4 ]
+            ];
+            const b: Mat2 = [
+                [ 0, 0 ],
+                [ 0, 0 ]
+            ];
+            const result = add(a, b);
+
+            expect(result).toEqual(a);
+        });
     });
-
-    it("should correctly add two positive 2-D matrices", () =>
-    {
-        const matrix: Mat2 = [
-            [ 1, 2 ],
-            [ 3, 4 ]
-        ];
-        const matrixToAdd: Mat2 = [
-            [ 1, 1 ],
-            [ 1, 1 ]
-        ];
-        const matrixOut = add(matrix, matrixToAdd);
-
-        const glMatrix: glmMat2 = [
-            1, 3,
-            2, 4
-        ];
-        const glMatrixToAdd: glmMat2 = [
-            1, 1,
-            1, 1
-        ];
-        const glMatrixOut = mat2.create();
-        mat2.add(glMatrixOut, glMatrix, glMatrixToAdd);
-
-        expect(matrixOut[0][0]).toEqual(glMatrixOut[0]);
-        expect(matrixOut[0][1]).toEqual(glMatrixOut[2]);
-        expect(matrixOut[1][0]).toEqual(glMatrixOut[1]);
-        expect(matrixOut[1][1]).toEqual(glMatrixOut[3]);
-    });
+    
 });

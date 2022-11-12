@@ -1,6 +1,7 @@
+import { Equal } from "../common/arithmetic";
 import { FixedLengthArray } from "../common/FixedLengthArray";
 
-type CannotDotProductArrays<L1 extends number, L2 extends number> =
+type ArraysInvalid<L1 extends number, L2 extends number> =
     `Array with length ${L1} cannot be dot-producted with array with differing length of ${L2}`;
 
 /**
@@ -10,19 +11,19 @@ type CannotDotProductArrays<L1 extends number, L2 extends number> =
  * @returns 
  */
 export const dot = <
-    L1 extends number | undefined,
-    L2 extends number | undefined,
-    RESULT = L1 extends number ? L2 extends number ? L1 extends L2 ? number : CannotDotProductArrays<L1, L2> : number : number
+    L1 extends number,
+    L2 extends number,
 >(
-    a: L1 extends undefined ? number[] : L1 extends number ? L1 extends L2 ? FixedLengthArray<number, L1> : never : never,
-    b: L1 extends undefined ? number[] : L2 extends number ? L1 extends L2 ? FixedLengthArray<number, L2> : never : never,
+    a: Equal<L1, L2> extends true ? FixedLengthArray<number, L1> : never,
+    b: Equal<L1, L2> extends true ? FixedLengthArray<number, L2> : never,
 )
-: RESULT =>
+: Equal<L1, L2> extends true ? number : ArraysInvalid<L1, L2> =>
 {
+    // @ts-ignore
     return a.reduce(
         (prev: number, curr: number, idx: number) => prev + (curr * b[idx]),
         0
-    ) as RESULT;
+    ) as number;
 };
 
 // const willWork = dot(
