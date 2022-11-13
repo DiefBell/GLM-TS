@@ -1,4 +1,4 @@
-import { Vector3 } from "../vector/types/Vector3";
+import { Vector } from "../vector/types/Vector";
 import { Quaternion } from "./types/Quaternion";
 
 /**
@@ -8,12 +8,15 @@ import { Quaternion } from "./types/Quaternion";
  * @param angle The angle about the axis.
  * @returns a Quaternion.
  */
-export const fromAxisAngle = (axis: Vector3, angle: number): Quaternion =>
+export const fromAxisAngle = (axis: Vector<3>, angle: number): Quaternion =>
 {
     const halfAngle = angle / 2;
     const s = Math.sin(halfAngle);
 
     return [
-        [ axis[0] * s, axis[1] * s, axis[2] * s, Math.cos(halfAngle) ]
+        axis[0] * s,
+        axis[1] * s,
+        axis[2] * s,
+        Math.cos(halfAngle)
     ];
 };

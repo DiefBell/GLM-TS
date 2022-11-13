@@ -1,3 +1,3 @@
-import { Matrix } from "../../matrix";
+import { FixedLengthArray } from "../../common/FixedLengthArray";
 
-export type Quaternion = Matrix<1, 4>;
+export type Quaternion = FixedLengthArray<number, 4>;
