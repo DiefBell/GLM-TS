@@ -18,8 +18,8 @@
 		"lint:fix": "eslint ./src --fix",
 		"test": "jest",
 		"test:coverage": "jest --coverage",
-		"coverage": "(yarn test:coverage || true) && open-cli ./coverage/index.html",
-		"coverage:badges": "(yarn test:coverage || true) && jest-coverage-badges output ./badges",
+		"coverage": "yarn test:coverage && open-cli ./coverage/index.html",
+		"coverage:badges": "yarn test:coverage && jest-coverage-badges output ./badges",
 		"postcoverage": ""
 	},
 	"devDependencies": {
