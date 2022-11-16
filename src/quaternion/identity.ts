@@ -7,7 +7,5 @@ import { Quaternion } from "./types/Quaternion";
  */
 export const identity = (): Quaternion =>
 {
-    return [
-        [ 0, 0, 0, 1 ]
-    ];
+    return [ 0, 0, 0, 1 ];
 };

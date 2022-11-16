@@ -12,6 +12,8 @@
 	"license": "MIT",
 	"scripts": {
 		"build": "tsc -p tsconfig.build.json",
+		"prewatch": "yarn build",
+		"watch": "tsc -p tsconfig.build.json -w",
 		"lint": "eslint ./src",
 		"lint:fix": "eslint ./src --fix",
 		"test": "jest"

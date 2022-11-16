@@ -25,25 +25,37 @@ type MatrixInvalid<ROWS extends number, COLS extends number> =
 /**
  * Gets the N-1 x N-1 submatrix of NxN matrix `mat`, with the given row and column ignored.
  * @param mat NxN matrix to get submatrix from.
- * @param rowIdx Row to ignore from matrix.
- * @param colIdx Column to ignore from matrix.
+ * @param skipRow Row to ignore from matrix.
+ * @param skipCol Column to ignore from matrix.
  * @returns N-1 x N-1 submatrix of `mat` with given row and col ignored.
  */
 export const submatrix = <ROWS extends number, COLS extends number>
 (
     mat: IsMatrixSquare<ROWS, COLS> extends true ? Matrix<ROWS, COLS> : never,
-    rowIdx: IntRange<0, ROWS>,
-    colIdx: IntRange<0, COLS>
+    skipRow: IntRange<0, ROWS>,
+    skipCol: IntRange<0, COLS>
 )
 :
 IsMatrixSquare<ROWS, COLS> extends false
     ? MatrixInvalid<ROWS, COLS>
     : Matrix<ROWS, COLS> =>
 {
-    const submatrix = structuredClone(mat);
+    const rows = mat.length;
+    const cols = mat[0].length;
 
-    submatrix.splice(rowIdx, 1);
-    submatrix.forEach((row) => row.splice(colIdx, 1));
+    const submatrix = new Array<Array<number>>();
+
+    for(let row = 0; row < rows; row++)
+    {
+        if(row === skipRow) continue;
+        submatrix.push([]);
+
+        for(let col = 0; col < cols; col++)
+        {
+            if(col === skipCol) continue;
+            submatrix[submatrix.length - 1].push(mat[row][col]);
+        }
+    }
 
     // @ts-ignore
     return submatrix as Matrix<ROWS, COLS>;

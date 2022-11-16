@@ -1,6 +1,7 @@
 import { dot } from "./dot";
 import { FixedLengthArray } from "../common/FixedLengthArray";
 import { Matrix } from "./types/Matrix";
+import { Equal } from "../common/arithmetic";
 
 type MatricesCannotBeMultiplied<R1 extends number, C1 extends number, R2 extends number, C2 extends number> =
     `Matrix with dimensions (${R1},${C1}) cannot be multiplied by a matrix with dimensions (${R2},${C2})!`;
@@ -16,12 +17,11 @@ export const multiply = <
     R1 extends number,
     C1 extends number,
     R2 extends number,
-    C2 extends number,
-    RESULT = C1 extends R2 ? Matrix<R1, C2> : MatricesCannotBeMultiplied<R1, C1, R2, C2>
+    C2 extends number
 >(
-    l: C1 extends R2 ? Matrix<R1, C1> : never,
-    r: C1 extends R2 ? Matrix<R2, C2> : never
-): RESULT =>
+    l: Equal<C1, R2> extends true ? Matrix<R1, C1> : never,
+    r: Equal<C1, R2> extends true ? Matrix<R2, C2> : never
+): Equal<C1, R2> extends true ? Matrix<R1, C2> : MatricesCannotBeMultiplied<R1, C1, R2, C2> =>
 {
     const lRows = l[0].length;
     const rCols = r.length;
@@ -40,6 +40,7 @@ export const multiply = <
         }
     }
 
+    // @ts-ignore
     return result as RESULT;
 };
 

@@ -13,10 +13,11 @@ export * from "./determinant";
 export * from "./dot";
 export * from "./equals";
 export * from "./frob";
+export * from "./perspectiveFromFov";
 export * from "./fromRotation2D";
 export * from "./fromScaling2D";
 export * from "./identity";
-export * from "./invert";
+export * from "./inverse";
 export * from "./multiply";
 // export * from "./rotate"; // TODO
 export * from "./scale";

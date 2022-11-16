@@ -11,3 +11,5 @@ export * as quat from "./quaternion";
 
 export * as vector from "./vector";
 export * as vec from "./vector";
+
+export * as glm_utils from "./utils";
