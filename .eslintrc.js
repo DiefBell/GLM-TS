@@ -16,6 +16,9 @@ module.exports = {
 		"eslint:recommended",
         "plugin:@typescript-eslint/recommended"
     ],
+	ignorePatterns: [
+		"jest.config.js"
+	],
     rules: {
 		"@typescript-eslint/ban-ts-comment": "off",
         "prefer-const": "warn",
