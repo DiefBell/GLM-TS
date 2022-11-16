@@ -16,7 +16,10 @@
 		"watch": "tsc -p tsconfig.build.json -w",
 		"lint": "eslint ./src",
 		"lint:fix": "eslint ./src --fix",
-		"test": "jest"
+		"test": "jest",
+		"test:coverage": "jest --coverage",
+		"coverage": "(yarn test:coverage || true) && open-cli ./coverage/index.html",
+		"postcoverage": ""
 	},
 	"devDependencies": {
 		"@types/jest": "^29.2.2",
@@ -24,6 +27,7 @@
 		"@typescript-eslint/parser": "^5.41.0",
 		"eslint": "^8.26.0",
 		"jest": "^29.3.0",
+		"open-cli": "^7.1.0",
 		"ts-jest": "^29.0.3",
 		"typescript": "^4.8.4",
 		"typescript-eslint": "^0.0.1-alpha.0"
