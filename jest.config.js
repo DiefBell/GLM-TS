@@ -10,7 +10,8 @@ module.exports = {
   ],
   coverageReporters: [
     "text-summary",
-    "html"
+    "html",
+    "json-summary"
   ],
   coverageThreshold: {
       global: {
