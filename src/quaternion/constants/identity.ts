@@ -1,4 +1,4 @@
-import { Quaternion } from "./types/Quaternion";
+import { Quaternion } from "../types/Quaternion";
 
 /**
  * Returns the identity quaternion.

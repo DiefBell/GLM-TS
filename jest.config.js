@@ -6,6 +6,7 @@ module.exports = {
   /*** coverage ***/
   collectCoverageFrom: [
     "src/**/*.ts",
+    "!src/**/index.ts",
   ],
   coverageReporters: [
     "text-summary",
