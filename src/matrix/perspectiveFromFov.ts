@@ -24,13 +24,13 @@ export const perspectiveFromFov = (fov: IFov, near: number, far: number): Matrix
 	const leftTan = Math.tan(fov.leftRads);
 	const rightTan = Math.tan(fov.rightRads);
 
-	const xScale = 2 / (leftTan + rightTan);
-	const yScale = 2 / (upTan + downTan);
+	const xScale = 2.0 / (leftTan + rightTan);
+	const yScale = 2.0 / (upTan + downTan);
 
 	return [
 		[   xScale,     0,        - ((leftTan - rightTan) * xScale * 0.5 ),		0 							],
 		[ 0,            yScale,     (upTan - downTan) * yScale * 0.5,        	0 							],
 		[ 0,			0,			far / (near - far),							(far * near) / (near - far)	],
-		[ 0,			0,			-1,											0							]
+		[ 0,			0,			-1.0,											0							]
 	];
 };
