@@ -20,7 +20,7 @@
 		"test": "jest",
 		"test:coverage": "jest --coverage",
 		"coverage": "yarn test:coverage",
-		"coverage:badges": "yarn test:coverage && jest-coverage-badges output ./badges",
+		"coverage:badges": "yarn test:coverage && jest-coverage-badges output ./docs/badges",
 		"coverage:open": "yarn coverage && open-cli converage/index.html",
 		"prepack": "yarn test && yarn build",
 		"check-circ": "dpdm --exit-code circular:1 ./src/index.ts"
