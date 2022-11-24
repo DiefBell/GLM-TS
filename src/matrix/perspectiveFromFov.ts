@@ -1,11 +1,28 @@
 import { Matrix } from "./types/Matrix";
 
-export interface IFov
+// idk if discriminated unions is going to add much to compute time,
+// needs some benchmarking
+export interface IFovAsymmetric
 {
+	type: "Field of View from four angles";
 	upRads: number;
 	downRads: number;
 	leftRads: number;
 	rightRads: number;
+}
+
+export interface IFovSymmetric
+{
+	type: "Field of View from a vertical FOV angle and a horizontal FOV angle";
+	verticalRads: number;
+	horizontalRads: number;
+}
+
+export interface IFovAspectRatio
+{
+	type: "Field of View from a vertical FOV angle and an aspect ratio";
+	verticalRads: number;
+	aspectRatio: number;
 }
 
 /**
@@ -17,12 +34,35 @@ export interface IFov
  * 
  * @returns Projection matrix.
  */
-export const perspectiveFromFov = (fov: IFov, near: number, far: number): Matrix<4, 4> =>
+export const perspectiveFromFov = (
+	fov: IFovAsymmetric | IFovSymmetric | IFovAspectRatio,
+	near: number, far: number
+): Matrix<4, 4> =>
 {
-	const upTan = Math.tan(fov.upRads);
-	const downTan = Math.tan(fov.downRads);
-	const leftTan = Math.tan(fov.leftRads);
-	const rightTan = Math.tan(fov.rightRads);
+	const getAllFovs = () =>
+	{
+		switch(fov.type)
+		{
+			case "Field of View from four angles":
+				return [ fov.upRads, fov.downRads, fov.leftRads, fov.rightRads ];
+			case "Field of View from a vertical FOV angle and a horizontal FOV angle":
+				return [ fov.verticalRads / 2, fov.verticalRads / 2, fov.horizontalRads / 2, fov.horizontalRads / 2 ];
+			case "Field of View from a vertical FOV angle and an aspect ratio":
+				return [
+					fov.verticalRads / 2,
+					fov.verticalRads / 2,
+					fov.aspectRatio * fov.verticalRads / 2,
+					fov.aspectRatio * fov.verticalRads / 2
+				];
+		}
+	};
+
+	const [ upRads, downRads, leftRads, rightRads ] = getAllFovs();
+	
+	const upTan = Math.tan(upRads);
+	const downTan = Math.tan(downRads);
+	const leftTan = Math.tan(leftRads);
+	const rightTan = Math.tan(rightRads);
 
 	const xScale = 2.0 / (leftTan + rightTan);
 	const yScale = 2.0 / (upTan + downTan);
