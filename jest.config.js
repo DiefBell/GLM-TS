@@ -7,6 +7,8 @@ module.exports = {
   collectCoverageFrom: [
     "src/**/*.ts",
     "!src/**/index.ts",
+    "!src/**/*.test.ts",
+    "!src/**/*.bench.ts",
   ],
   coverageReporters: [
     "text-summary",
@@ -15,10 +17,10 @@ module.exports = {
   ],
   coverageThreshold: {
       global: {
-          statements: 30,
+          statements: 35,
           branches: 55,
-          functions: 15,
-          lines: 30,
+          functions: 20,
+          lines: 35,
       },
   },
 };
