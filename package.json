@@ -18,9 +18,10 @@
 		"lint:fix": "eslint ./src --fix",
 		"test": "jest",
 		"test:coverage": "jest --coverage",
-		"coverage": "yarn test:coverage && open-cli ./coverage/index.html",
+		"coverage": "yarn test:coverage",
 		"coverage:badges": "yarn test:coverage && jest-coverage-badges output ./badges",
-		"postcoverage": ""
+		"coverage:open": "yarn coverage && open-cli converage/index.html",
+		"prepack": "yarn test && yarn build"
 	},
 	"devDependencies": {
 		"@types/jest": "^29.2.2",

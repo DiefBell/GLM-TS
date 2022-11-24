@@ -1,4 +1,3 @@
-import { Matrix } from "./types/Matrix";
 import { SquareMatrix } from "./types/SquareMatrix";
 
 // https://en.wikipedia.org/wiki/Adjugate_matrix

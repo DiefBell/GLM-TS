@@ -1,4 +1,4 @@
-import { inverse } from "./inverse";
+// import { inverse } from "./inverse";
 
 describe("Matrix Inverse function", () =>
 {
