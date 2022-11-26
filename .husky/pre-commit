@@ -1,4 +1,12 @@
 #!/bin/sh
 . "$(dirname "$0")/_/husky.sh"
 
-yarn lint && yarn coverage:badges && git add ./docs/badges/*.svg && yarn build
+yarn lint && \
+
+yarn coverage:badges && \
+git add ./docs/badges/*.svg && \
+
+yarn build-docs && \
+git add ./docs/www/**/* && \
+
+yarn build
