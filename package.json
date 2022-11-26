@@ -23,7 +23,9 @@
 		"coverage:badges": "yarn test:coverage && jest-coverage-badges output ./docs/badges",
 		"coverage:open": "yarn coverage && open-cli converage/index.html",
 		"prepack": "yarn test && yarn build",
-		"check-circ": "dpdm --exit-code circular:1 ./src/index.ts"
+		"check-circ": "dpdm --exit-code circular:1 ./src/index.ts",
+		"build-docs": "typedoc --entryPointStrategy packages . --tsconfig ./tsconfig.build.json --out docs/www --name 'GLM.TS'",
+		"open-docs": "yarn build-docs && open-cli docs/www/index.html"
 	},
 	"devDependencies": {
 		"@types/jest": "^29.2.2",
@@ -36,7 +38,11 @@
 		"jest-coverage-badges": "^1.1.2",
 		"open-cli": "^7.1.0",
 		"ts-jest": "^29.0.3",
+		"typedoc": "^0.23.21",
 		"typescript": "^4.8.4",
 		"typescript-eslint": "^0.0.1-alpha.0"
+	},
+	"typedoc": {
+		"entryPoint": "src/index.ts"
 	}
 }
