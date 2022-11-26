@@ -24,7 +24,7 @@
 		"coverage:open": "yarn coverage && open-cli converage/index.html",
 		"prepack": "yarn test && yarn build",
 		"check-circ": "dpdm --exit-code circular:1 ./src/index.ts",
-		"build-docs": "typedoc --entryPointStrategy packages . --tsconfig ./tsconfig.build.json --out docs/www --name 'GLM.TS'",
+		"build-docs": "yarn typedoc --options ./typedoc.js",
 		"open-docs": "yarn build-docs && open-cli docs/www/index.html"
 	},
 	"devDependencies": {
@@ -41,8 +41,5 @@
 		"typedoc": "^0.23.21",
 		"typescript": "^4.8.4",
 		"typescript-eslint": "^0.0.1-alpha.0"
-	},
-	"typedoc": {
-		"entryPoint": "src/index.ts"
 	}
 }

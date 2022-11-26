@@ -2,6 +2,7 @@
 export * from "./types/Vector";
 export * from "./types/Vector2";
 export * from "./types/Vector3";
+export * from "./types/Vector4";
 
 // functions
 export * from "./add";
