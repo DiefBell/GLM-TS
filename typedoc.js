@@ -6,5 +6,6 @@ module.exports = {
     name: "GLM TS",
     tsconfig: "./tsconfig.build.json",
     includeVersion: true,
-    logLevel: "Error"
+    logLevel: "Error",
+    gitRevision: "main"
 };
