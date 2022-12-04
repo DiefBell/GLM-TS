@@ -1,3 +1,8 @@
 node_modules/
+lib/
+coverage/
+docs/
+scripts/
+
 .eslintrc.js
 typedoc.js

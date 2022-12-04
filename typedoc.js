@@ -4,7 +4,7 @@ module.exports = {
     entryPoints: [ "./src/index.ts" ],
     out: "./docs/www",
     name: "GLM TS",
-    tsconfig: "./tsconfig.build.json",
+    tsconfig: "./tsconfig.cjs.json",
     includeVersion: true,
     logLevel: "Error",
     gitRevision: "main"

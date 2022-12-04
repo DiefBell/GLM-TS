@@ -2,7 +2,9 @@
 	"name": "glm-ts",
 	"version": "0.1.0",
 	"description": "TypeScript matrix and vector maths library",
-	"main": "./lib/index.js",
+	"main": "./lib/cjs/index.js",
+	"browser": "./lib/cjs/index.js",
+	"module": "./lib/esm/index.mjs",
 	"files": [
 		"lib/**/*",
 		"LICENSE.txt",
@@ -12,7 +14,8 @@
 	"license": "MIT",
 	"scripts": {
 		"prepare": "husky install",
-		"build": "tsc -p tsconfig.build.json",
+		"build": "tsc -p tsconfig.cjs.json && tsc -p tsconfig.esm.json",
+		"postbuild": "bash ./scripts/rename-esm-files.sh",
 		"prewatch": "yarn build",
 		"watch": "tsc -p tsconfig.build.json -w",
 		"lint": "eslint ./src",
