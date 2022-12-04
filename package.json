@@ -17,7 +17,7 @@
 		"build": "tsc -p tsconfig.cjs.json && tsc -p tsconfig.esm.json",
 		"postbuild": "bash ./scripts/rename-esm-files.sh",
 		"prewatch": "yarn build",
-		"watch": "tsc -p tsconfig.build.json -w",
+		"watch": "tsc -p tsconfig.cjs.json -w",
 		"lint": "eslint ./src",
 		"lint:fix": "eslint ./src --fix",
 		"test": "jest",
