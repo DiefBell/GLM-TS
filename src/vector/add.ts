@@ -30,6 +30,26 @@ export const add = <
     return vec;
 };
 
+export const $add = <
+    D1 extends number,
+    D2 extends number
+>
+(
+    $a: Equal<D1, D2> extends true ? Vector<D1> : never,
+    b: Equal<D1, D2> extends true ? Vector<D2> : never,
+)
+: Equal<D1, D2> extends true ? void : VectorsNotSameSizeError<D1, D2> =>
+{
+    for(let i = 0; i < $a.length; i++)
+    {
+        $a[i] += b[i];
+    }
+
+    // @ts-ignore
+    return;
+};
+
+
 // const a1: Vector<2> = [ 1, 2 ];
 // const a2: Vector<2> = [ 3, 4 ];
 // const b: Vector<3> = [ 5, 6, 7 ];
