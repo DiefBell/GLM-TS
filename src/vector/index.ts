@@ -10,6 +10,7 @@ export * from "./cross";
 export * from "./dot";
 export * from "./magnitude";
 export * from "./normalise";
+export * from "./reflect";
 export * from "./scale";
 export * from "./subtract";
 
